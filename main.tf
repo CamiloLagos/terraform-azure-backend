@@ -19,7 +19,7 @@ resource "azurerm_storage_account" "tfstate" {
 }
 
 resource "azurerm_storage_account_customer_managed_key" "encryption" {
-  storage_account_id = azurerm_storage_account.sql_account.id
+  storage_account_id = azurerm_storage_account.tfstate.id
   key_vault_id       = var.key_vault_id
   key_name           = var.key_name
 }
