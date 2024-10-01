@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "tfstate" {
-  name     = upper("rg-${var.correlativo}-tf-${var.proyecto}-${var.workspace}")
+  name     = upper("rg-${var.correlativo}-tf-${var.proyecto}-${var.ambiente}")
   location = var.location
   tags     = var.tags
 }
