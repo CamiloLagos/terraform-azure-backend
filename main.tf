@@ -18,6 +18,12 @@ resource "azurerm_storage_account" "tfstate" {
   tags = var.tags
 }
 
+resource "azurerm_storage_account_customer_managed_key" "encryption" {
+  storage_account_id = azurerm_storage_account.sql_account.id
+  key_vault_id       = var.key_vault_id
+  key_name           = var.key_name
+}
+
 resource "azurerm_storage_container" "tfstate" {
   name                  = lower("tf${var.proyecto}${var.ambiente}")
   storage_account_name  = azurerm_storage_account.tfstate.name
